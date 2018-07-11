@@ -3,11 +3,13 @@
 
 enum intersectionType { normal, roundabout };
 
-struct Position {
+struct Position 
+{
     float x;
     float y;
     float z;
-    Position operator+(const Position& p){
+    Position operator+(Position& p)
+	{
         Position pos;
         pos.x = this -> x + p.x;
         pos.y = this -> y + p.y;
@@ -15,7 +17,8 @@ struct Position {
         return pos;
     }
     
-    Position operator*(const float& f){
+    Position operator*(float f)
+	{
         Position pos;
         pos.x = this -> x * f;
         pos.y = this -> y * f;
@@ -23,7 +26,8 @@ struct Position {
         return pos;
     }
     
-    Position operator-(const Position& p){
+    Position operator-(Position& p)
+	{
         Position pos;
         pos.x = this -> x - p.x;
         pos.y = this -> y - p.y;
@@ -31,10 +35,9 @@ struct Position {
         return pos;
     }
 };
-
-struct intersection
+struct Intersection
 {
-	position pos;
+	Position pos;
 	intersectionType type;
 };
 

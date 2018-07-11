@@ -1,5 +1,5 @@
-#ifndef INTERSECTIONS_H
-#define INTERSECTIONS_H
+#ifndef ROADSYSTEM_H
+#define ROADSYSTEM_H
 
 #include <vector>
 #include <iostream>
@@ -15,22 +15,22 @@ using namespace std;
 #define CAR        0b01000
 #define NOTHING    0b10000
 
-struct lane
+struct Lane
 {
 	int authorizedVehicles;
 	int authorizedCrossingLeft;
 	int authorizedCrossingRight;
 
 	uint16_t speedLimit;
-	vector<lane*> connectedLanesAt_a;
-	vector<lane*> connectedLanesAt_b;
+	vector<Lane*> connectedLanesAt_a;
+	vector<Lane*> connectedLanesAt_b;
 };
-struct segment
+struct Segment
 {
-	intersection* vertice_a; //Vertices adjacent to the segment
-	intersection* vertice_b;
-	vector<lane> a_to_b;
-	vector<lane> b_to_a;
+	Intersection* vertice_a; //Vertices adjacent to the segment
+	Intersection* vertice_b;
+	vector<Lane> a_to_b;
+	vector<Lane> b_to_a;
 };
 
 class RoadSystem
@@ -39,13 +39,13 @@ class RoadSystem
 		RoadSystem();
         virtual ~RoadSystem();
 
-		intersection addIntersectionInSegment(segment sgmt, float pos); //pos is in % from a to b of the segment
-		segment connectIntersections(intersection *a, intersection *b);
-		segment addSegment(position pos_a, position pos_b);
+		Intersection addIntersectionInSegment(Segment sgmt, float pos); //pos is in % from a to b of the segment
+		Segment connectIntersections(Intersection *a, Intersection *b);
+		Segment addSegment(Position pos_a, Position pos_b);
 
     private:
-		vector<segment> _segments;
-		vector<intersection> _intersections;
+		vector<Segment> _segments;
+		vector<Intersection> _intersections;
 };
 
 #endif // INTERSECTIONS_H
