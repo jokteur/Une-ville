@@ -42,7 +42,11 @@ class RoadSystem
 		Intersection addIntersectionInSegment(Segment sgmt, float pos); //pos is in % from a to b of the segment
 		Segment connectIntersections(Intersection *a, Intersection *b);
 		Segment addSegment(Position pos_a, Position pos_b);
+		void addLaneInSegment(Segment &sgmt, Lane lane);
 
+		//Getters
+		vector<Segment> getSegments() { return _segments; }
+		vector<Intersection> getIntersections() { return _intersections; }
     private:
 		vector<Segment> _segments;
 		vector<Intersection> _intersections;
