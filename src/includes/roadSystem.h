@@ -15,19 +15,6 @@ using namespace std;
 #define CAR        0b01000
 #define NOTHING    0b10000
 
-enum intersectionType {normal, roundabout};
-
-struct position
-{
-	float x;
-	float y;
-	float z;
-};
-struct intersection
-{
-	position pos;
-	intersectionType type;
-};
 struct lane
 {
 	int authorizedVehicles;
