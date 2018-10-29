@@ -1,5 +1,6 @@
 # Machine learning project 1 : the Higgs Boson challenge
 As intermediate project of the Machine Learning course at EPFL, we were asked to face a classification problem in the context of high-energy physics.  
+
 This document outlines the necessary steps to build the model that gives the best reached prediction. After detailing the data cleaning procedure, different models were compared (which can be found on the report). Given this evidence, the ridge regression was chosen and improved by a further feature augmentation. Thus, an accuracy of around 0.832 was reached.
 
 ##### Table of Contents  
