@@ -1,6 +1,6 @@
 # Machine learning project 1 : the Higgs Boson challenge
 As intermediate project of the Machine Learning course at EPFL, we were asked to face a classification problem in the context of high-energy physics.  
-This document outlines the necessary steps to build the model that gives the best reached prediction. After detailing the data cleaning procedure, different models were compared (which can be found on the report). Given this evidence, the ridge regression was chosen and improved by a further feature augmentation. Thus, an accuracy of around 0.836 was reached.
+This document outlines the necessary steps to build the model that gives the best reached prediction. After detailing the data cleaning procedure, different models were compared (which can be found on the report). Given this evidence, the ridge regression was chosen and improved by a further feature augmentation. Thus, an accuracy of around 0.832 was reached.
 
 ##### Table of Contents  
 * [Getting started](#start)
@@ -73,11 +73,11 @@ These few lines of code at the end of the file are sufficient to generate a pred
 sigma = 12
 seed = 2
 degree = 12
-feat_exp_degree = 6
+feat_exp_degree = 3
 k_fold = 4
 threshold = 0.03
 
-lambdas = np.logspace(-4.5, -3.5, 10)
+lambdas = [4.08e-05] #np.logspace(-4.5, -3.5, 10) #The best lambda found in our current model is 4.0842386526745174e-05
 weights = train_model(sigma, seed, degree, feat_exp_degree, lambdas, k_fold)
 y_pred = predict(weights, degree, feat_exp_degree, threshold)
 
